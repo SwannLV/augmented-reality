@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>AWE Marker AR demo</title>
+<title>Marker AR demo</title>
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 <meta charset="utf-8"/>
 <style type="text/css">
@@ -48,8 +48,11 @@
               'awe.marker_ar.js',
             ],
             success: function() { 
-					awe.setup_scene();			
+            	
+							awe.setup_scene();			
+
 			        awe.pois.add({ id:'poi_1', position: { x:0, y:0, z:0 }, visible: true });
+			        
 			        awe.projections.add({ 
                         id:'projection_1', 
                         //geometry: { shape: 'planegeometry', width:400, height:400 },//
@@ -57,9 +60,21 @@
                         geometry:{ shape: 'plane', height:300, width:330 },
                         material:{ type: 'phong', color: 0xFFFFFF, transparent: true }, 
                         texture: { path: 'inverted-pasta.png' },
-                        rotation:{ x:45, y:0, z:0 }
-                        //rotation:{ x:0, y:0, z:0 }
+                        rotation:{ x:45, y:0, z:0 },
+                        position:{ x:0, y:0, z:50 }
 			        }, { poi_id: 'poi_1' });
+			        
+			        /*awe.projections.add({ 
+                        id:'projection_2', 
+                        geometry:{ shape: 'plane', height:300, width:330 },
+                        material:{ color: 0xFFFFFF, transparent: true }, 
+                        //texture: { path: 'inverted-pasta.png' },
+                        texture: { path: 'Comp_1.webm'},
+                        //texture: { path: 'small.mp4' },
+                        position:{ x:200, y:0, z:10 },
+                        rotation:{ x:45, y:0, z:0 }
+			        }, { poi_id: 'poi_1' });*/
+			        
 			        awe.events.add([{
 								id: 'ar_tracking_marker',
 								device_types: {
